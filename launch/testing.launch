@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<launch>
+  <!-- start Webots -->
+ 
+  <arg name="no_gui" default="false," doc="Start Webots with minimal GUI"/>
+  <include file="$(find webots_ros)/launch/webots.launch">
+    <arg name="mode" value="realtime"/>
+    <arg name="no_gui" value="$(arg no_gui)"/>
+    <arg name="world" value="$(find mcc_kf)/webots_env/worlds/demo_world.wbt"/>
+  </include>   
+
+  <!-- start ROS nodes -->
+  <node name="lqi" pkg="mcc_kf" type="lqi.py" output="screen"/>\
+  <node name="true_state" pkg="mcc_kf" type="true_state.py" output="screen"/>
+
+</launch>

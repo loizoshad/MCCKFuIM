@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <!-- start ROS nodes -->
+    <node name="intermittent_kalman_filter" pkg="mcc_kf" type="intermittent_kalman_filter.py" output="screen"/>\
+    <node name="mckf" pkg="mcc_kf" type="mckf.py" output="screen"/>
+    <node name='data_logger' pkg='mcc_kf' type='data_logger.py' output='screen'/>
+
+</launch>
